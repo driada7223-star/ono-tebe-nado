@@ -2,8 +2,7 @@
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
-  min-height: 293px;
-  padding: 0 50px;
+  padding: 92px 50px 96px; /* убрала min-height: 293px; и добавила padding-top 92px и  padding-bottom: 96px; */
 }
 
 .header__links-list {
@@ -47,7 +46,11 @@
 
 .header__logo-image {
   display: block;
-  width: 148px;
+  /* убрала width: 148px; (это натуральная ширина SVG, она больше макета)
+     добавила width: 129px; — по макету Figma logo = 129.11 x 104.65
+     height: auto; — высота рассчитывается сама из пропорций SVG, чтобы не исказить логотип */
+  width: 129px;
+  height: auto;
 }
 
 .address {
@@ -141,7 +144,7 @@
   border: 1px solid #fff;
   background-color: transparent;
   padding: 12px 31px;
-  font-family: Raleway;
+  /* убрала нагромождение шрифтов, добавила запасные шрифты в файл global.css */
   font-size: 22px;
   line-height: 1.17;
   text-transform: uppercase;
@@ -164,12 +167,14 @@
 
 .lots__card-list {
   display: flex;
+  flex-wrap: wrap; /* добавила перенос карточек на новую строку */
   gap: 25px;
   list-style-type: none;
 }
 
 .lots__card-list-item {
   width: 334px;
+  flex-shrink: 0; /* зафиксировала ширину карточки */
 }
 
 .card-link {
@@ -184,7 +189,6 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  width: 334px;
   min-height: 596px;
   padding: 48px 40px;
   background-size: cover;
@@ -285,9 +289,8 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: start;
-  min-height: 180px;
   margin-top: 180px;
-  padding: 0 50px;
+  padding: 0 50px 82px; /* убрала min-height: 180px; и добавила padding-bottom: 82px; */
 }
 
 .footer__address {
